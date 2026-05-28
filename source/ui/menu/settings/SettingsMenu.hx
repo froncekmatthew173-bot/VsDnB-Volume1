@@ -11,7 +11,6 @@ import flixel.math.FlxPoint;
 import flixel.math.FlxPoint.FlxCallbackPoint;
 import flixel.group.FlxGroup;
 import flixel.group.FlxSpriteGroup;
-import flixel.group.FlxSpriteContainer;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
