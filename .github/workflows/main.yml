@@ -32,7 +32,7 @@ jobs:
         run: |
           haxelib --global install hmm
           haxelib --global run hmm setup
-          hmm install
+           haxelib --global run hmm install
 
       - name: Build Windows
         if: startsWith(matrix.os, 'windows')
