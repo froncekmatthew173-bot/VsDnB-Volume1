@@ -5,15 +5,12 @@ import play.save.Preferences;
 import ui.menu.settings.SettingsMenu.CallbackOption;
 import ui.menu.settings.SettingsMenu.CheckboxOption;
 
-class Options_General extends SettingsCategory
-{
-	public override function init()
-	{
+class Options_General extends SettingsCategory {
+	public override function init() {
 		var checkbox_downscroll = new CheckboxOption(400, 300, {
 			name: LanguageManager.getTextString('settings_general_downscroll'),
 			description: LanguageManager.getTextString('settings_general_downscroll_description'),
-			callback: function(value:Bool)
-			{
+			callback: function(value:Bool) {
 				Preferences.downscroll = value;
 			}
 		});
@@ -24,8 +21,7 @@ class Options_General extends SettingsCategory
 		var checkbox_ghostTapping = new CheckboxOption(400, 400, {
 			name: LanguageManager.getTextString('settings_general_ghostTapping'),
 			description: LanguageManager.getTextString('settings_general_ghostTapping_description'),
-			callback: function(value:Bool)
-			{
+			callback: function(value:Bool) {
 				Preferences.ghostTapping = value;
 			}
 		});
@@ -36,8 +32,7 @@ class Options_General extends SettingsCategory
 		var checkbox_cutscenes = new CheckboxOption(400, 500, {
 			name: LanguageManager.getTextString('settings_general_cutscenes'),
 			description: LanguageManager.getTextString('settings_general_cutscenes_description'),
-			callback: function(value:Bool)
-			{
+			callback: function(value:Bool) {
 				Preferences.cutscenes = value;
 			}
 		});
@@ -45,11 +40,25 @@ class Options_General extends SettingsCategory
 		list.push(checkbox_cutscenes);
 		add(checkbox_cutscenes);
 
+		// ==========================================================
+		// ▶ BOTPLAY OPTION (NEW)
+		// ==========================================================
+		var checkbox_botplay = new CheckboxOption(400, 550, {
+			name: LanguageManager.getTextString('settings_general_botplay'),
+			description: LanguageManager.getTextString('settings_general_botplay_description'),
+			callback: function(value:Bool) {
+				Preferences.botplay = value;
+			}
+		});
+		checkbox_botplay.setChecked(Preferences.botplay, false, true);
+		list.push(checkbox_botplay);
+		add(checkbox_botplay);
+		// ==========================================================
+
 		var option_keybinds = new CallbackOption(400, 600, {
 			name: LanguageManager.getTextString('settings_general_keybinds'),
 			description: LanguageManager.getTextString('settings_general_keybinds_description'),
-			callback: function()
-			{
+			callback: function() {
 				parent.canInteract = false;
 				parent.openKeybindsMenu();
 			}
@@ -57,9 +66,8 @@ class Options_General extends SettingsCategory
 		list.push(option_keybinds);
 		add(option_keybinds);
 	}
-	
-	override function getName():String
-	{
+
+	override function getName():String {
 		return LanguageManager.getTextString('settings_category_general');
 	}
 }
