@@ -37,7 +37,7 @@ class GameSound extends FlxSound
 	 */
 	public override function load(asset:FlxSoundAsset, allowCache = true):GameSound
 	{
-		super.load(asset, allowCache);
+        loadEmbedded(asset, false, !allowCache);
 		return this;
 	}
 
