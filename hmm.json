@@ -2,33 +2,34 @@
    "dependencies": [
       {
          "name": "flixel",
-         "type": "git",
-         "dir": null,
-         "ref": "f2dc7ba3b7c3fc3fcb4991577571c3dfc4f51cae",
-         "url": "https://github.com/T5mpler/flixel-dnb"
+         "type": "haxelib",
+         "version": "6.1.0"
       },
       {
          "name": "flixel-addons",
-         "type": "git",
-         "dir": null,
-         "ref": "75a25a3adfe6c50690444e3af54cc0ed341b3274",
-         "url": "https://github.com/T5mpler/flixel-addons-dnb"
+         "type": "haxelib",
+         "version": "3.3.2"
+      },
+      {
+         "name": "flixel-ui",
+         "type": "haxelib",
+         "version": "2.6.4"
       },
       {
          "name": "openfl",
          "type": "haxelib",
-         "version": null
+         "version": "9.4.1"
       },
       {
          "name": "lime",
          "type": "haxelib",
-         "version": null
+         "version": "8.2.2"
       },
 
       {
          "name": "hxvlc",
          "type": "haxelib",
-         "version": null
+         "version": "2.2.2"
       },
       {
          "name": "hxdiscord_rpc",
@@ -38,17 +39,7 @@
       {
          "name": "hxcpp",
          "type": "haxelib",
-         "version": null
-      },
-      {
-         "name": "format",
-         "type": "haxelib",
-         "version": null
-      },
-      {
-         "name": "hxp",
-         "type": "haxelib",
-         "version": null
+         "version": "4.3.2"
       },
 
       {
@@ -65,13 +56,15 @@
          "ref": "main",
          "url": "https://github.com/T5mpler/funkVis-dnb.git"
       },
+
       {
-         "name": "flixel-animate",
+         "name": "flxanimate",
          "type": "git",
          "dir": null,
-         "ref": "aae07578e60a83347e8189af1b312d69d05215b8",
-         "url": "https://github.com/MaybeMaru/flixel-animate.git"
+         "ref": "b8970d2e4d875c743abe28e356a15413b1774d94",
+         "url": "https://github.com/Dot-Stuff/flxanimate.git"
       },
+
       {
          "name": "hscript",
          "type": "git",
@@ -83,7 +76,7 @@
          "name": "polymod",
          "type": "git",
          "dir": null,
-         "ref": "d2d73608e63cf8c6672a19568557fa0ab7882628",
+         "ref": "experimental",
          "url": "https://github.com/T5mpler/polymod-dnb.git"
       },
       {
