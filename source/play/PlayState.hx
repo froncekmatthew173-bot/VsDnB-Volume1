@@ -1419,7 +1419,7 @@ class PlayState extends MusicBeatState {
 	 */
 	function beginStartDialogue(id:String, ?onComplete:Void->Void) {
 		// Start the countdown if no other callback was provided.
-		onComplete ?? = startCountdown;
+		onComplete = startCountdown;
 
 		if (!Preferences.cutscenes) {
 			if (onComplete != null)
