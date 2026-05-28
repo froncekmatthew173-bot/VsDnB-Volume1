@@ -41,7 +41,11 @@
          "type": "haxelib",
          "version": "4.3.2"
       },
-
+      {
+         "name": "flixel-animate",
+         "type": "haxelib",
+         "version": null
+      },
       {
          "name": "grig.audio",
          "type": "git",
