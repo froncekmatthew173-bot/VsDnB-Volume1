@@ -227,7 +227,7 @@ class PlayState extends MusicBeatState {
 				return;
 
 			// Already hit, skip
-			if (note.wasGoodHit)
+			if (note.hasBeenHit)
 				return;
 
 			// Trigger correct hit system
@@ -238,7 +238,7 @@ class PlayState extends MusicBeatState {
 			playingChar.playAnim(anim, true);
 			playingChar.holdTimer = 0;
 
-			note.wasGoodHit = true;
+			note.hasBeenHit = true;
 		});
 	}
 
@@ -803,9 +803,9 @@ class PlayState extends MusicBeatState {
 		});
 
 		// ===================================================
-		// BOTPLAY: auto-hit notes when cpuControlled is true
-		// ===================================================
-		if (cpuControlled) {
+		// BOTPLAY: auto-hit notes when the preference is enabled
+		// =======================================================
+		if (Preferences.botplay) {
 			botplayAutoHit();
 		}
 		handleInputs();

@@ -4,6 +4,7 @@ import backend.Conductor;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
+import openfl.utils.Assets;
 #if (!flash && sys)
 import flixel.addons.display.FlxRuntimeShader;
 #end
@@ -137,7 +138,7 @@ class FlareonCharacter extends Character
 
 	function makeOptionalPart(image:String):FlxSprite
 	{
-		if (Paths.fileExists('images/$image.png', IMAGE))
+		if (Assets.exists(Paths.imagePath(image), openfl.utils.AssetType.IMAGE))
 			return makePart(image);
 
 		var spr = new FlxSprite();
@@ -201,7 +202,7 @@ class FlareonCharacter extends Character
 		updateFireball(elapsed);
 		holdTimer = currentAnim.startsWith('sing') ? holdTimer + elapsed : 0;
 		if (!debugMode
-			&& !isPlayer
+			&& characterType != PLAYER
 			&& holdTimer >= Conductor.stepCrochet * (0.0011 #if FLX_PITCH / (FlxG.sound.music != null ? FlxG.sound.music.pitch : 1) #end) * singDuration)
 		{
 			dance();
@@ -1066,15 +1067,15 @@ class FlareonCharacter extends Character
 		}
 	}
 
-	override public function dance()
+	override public function dance(force:Bool = false):Void
 	{
 		if (!debugMode && !skipDance && !specialAnim)
 			playAnim('idle');
 	}
 
-	override public function hasAnimation(anim:String):Bool
+	public function hasAnimation(anim:String):Bool
 		return animOffsets.exists(anim);
 
-	override public function isAnimationFinished():Bool
+	public function isAnimationFinished():Bool
 		return currentAnim != 'scared' && !currentAnim.endsWith('-loop') && singTimer <= 0;
 }

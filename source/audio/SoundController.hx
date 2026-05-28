@@ -26,16 +26,17 @@ class SoundController
 	/**
 	 * Redirect to `FlxG.sound.music` for consistency.
 	 */
-	public static var music(get, set):FlxSound;
+	public static var music(get, set):GameSound;
 
-	static function get_music():FlxSound
+	static function get_music():GameSound
 	{
-		return FlxG.sound.music;
+		return cast FlxG.sound.music;
 	}
 
-	static function set_music(value:FlxSound):FlxSound
+	static function set_music(value:GameSound):GameSound
 	{
-		return FlxG.sound.music = value;
+		FlxG.sound.music = value;
+		return value;
 	}
 
 	/**
