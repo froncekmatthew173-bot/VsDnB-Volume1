@@ -32,7 +32,8 @@ jobs:
         run: |
           haxelib --global install hmm
           haxelib --global run hmm setup
-           haxelib --global run hmm install
+          haxelib --global run hmm install
+          lime rebuild cpp
 
       - name: Build Windows
         if: startsWith(matrix.os, 'windows')
