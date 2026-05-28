@@ -1,5 +1,9 @@
 package play.character;
 
+import backend.Conductor;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxColor;
 #if (!flash && sys)
 import flixel.addons.display.FlxRuntimeShader;
 #end
@@ -42,6 +46,15 @@ class FlareonCharacter extends Character
 	var mouth:FlxSprite;
 	var fireball:FlxSprite;
 
+	var curCharacter:String = "flareon";
+	var healthIcon:String = "flareon-pixel";
+	var healthColorArray:Array<Int> = [247, 123, 62];
+	var hasMissAnimations:Bool = true;
+	var specialAnim:Bool = false;
+	var skipDance:Bool = false;
+	var heyTimer:Float = 0;
+	var _lastPlayedAnimation:String = "";
+
 	var time:Float = 0;
 	var singPoseTime:Float = 0;
 	var singTimer:Float = 0;
@@ -55,15 +68,16 @@ class FlareonCharacter extends Character
 
 	public function new(x:Float, y:Float, ?character:String = 'flareon', ?isPlayer:Bool = false)
 	{
-		super(x, y, character, isPlayer);
+		super(character);
 
-		curCharacter = character;
-		healthIcon = 'flareon-pixel';
-		healthColorArray = [247, 123, 62];
+		setPosition(x, y);
+		characterType = isPlayer ? PLAYER : OPPONENT;
 		singDuration = 4;
-		noAntialiasing = true;
 		antialiasing = false;
-		hasMissAnimations = true;
+		characterColor = 0xFFF77B3E;
+		color = characterColor;
+		if (_data != null)
+			_data.icon = healthIcon;
 
 		offset.set();
 		origin.set(width * 0.5, height * 0.5);
@@ -781,16 +795,16 @@ class FlareonCharacter extends Character
 					}
 			],
 			image: getCharacterImagePath(outputFolder, sheetName),
-			scale: jsonScale,
+			scale: baseScale,
 			sing_duration: singDuration,
 			healthicon: healthIcon,
-			position: positionArray,
-			camera_position: cameraPosition,
-			flip_x: originalFlipX,
-			no_antialiasing: noAntialiasing,
+			position: [x, y],
+			camera_position: [cameraFocusPoint.x, cameraFocusPoint.y],
+			flip_x: flipX,
+			no_antialiasing: !antialiasing,
 			healthbar_colors: healthColorArray,
-			vocals_file: vocalsFile,
-			_editor_isPlayer: isPlayer
+			vocals_file: null,
+			_editor_isPlayer: characterType == PLAYER
 		};
 	}
 
