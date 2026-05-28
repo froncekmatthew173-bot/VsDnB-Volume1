@@ -16,7 +16,7 @@ enum SoundType
 }
 
 /**
- * An FlxSound extension with an additional `SoundType` allowing for volume automation based on what sound it is.
+ * An FlxSound with an additional `SoundType` allowing for volume automation based on what sound it is.
  */
 class GameSound extends FlxSound
 {
@@ -34,14 +34,15 @@ class GameSound extends FlxSound
 	 * @param looped Whether this sound should loop.
 	 * @param autoDestroy Should the sound destroy when completed?
 	 * @param onComplete Called when the audio is finished.
+	 * @return -> Void):GameSound
 	 */
-	public override function load(asset:FlxSoundAsset, allowCache = true):GameSound
+	public function load(embeddedSound:FlxSoundAsset, looped:Bool = false, autoDestroy:Bool = false, ?onComplete:() -> Void):GameSound
 	{
-        loadEmbedded(asset, false, !allowCache);
+		loadEmbedded(embeddedSound, looped, autoDestroy, onComplete);
 		return this;
 	}
 
-	// Override to take user volume preferences into account.
+	// Override to take into account the user volume preferences.
 	override function updateTransform():Void
 	{
 		var volumeMultiplier = switch (soundType)
