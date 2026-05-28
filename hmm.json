@@ -18,15 +18,15 @@
          "name": "openfl",
          "type": "git",
          "dir": null,
-         "ref": "74d8f72890b9ae70bba589d034ea35b86588e548",
-         "url": "https://github.com/T5mpler/openfl-dnb"
+         "ref": "88534506595a32c3f02b21b3987e789a24074ae7",
+         "url": "https://github.com/FunkinCrew/openfl"
       },
       {
          "name": "lime",
          "type": "git",
          "dir": null,
-         "ref": "adb5f5c5e7fe73b5ff666f3d66fc0501b385d84e",
-         "url": "https://github.com/T5mpler/lime-dnb"
+         "ref": "826d25199c17329b730ae09838f3df7a2903c471",
+         "url": "https://github.com/FunkinCrew/lime"
       },
 
       {
